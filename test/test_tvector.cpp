@@ -137,13 +137,10 @@ TEST(TDynamicVector, compare_vector_with_itself_return_true)
 
 TEST(TDynamicVector, vectors_with_different_size_are_not_equal)
 {
-	int* a = new int[10] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	TDynamicVector<int> v(a, 10);
-	delete[] a;
-	int* b = new int[8] {1, 2, 3, 4, 5, 6, 7, 8};
-	TDynamicVector<int> v1(b, 8);
-	delete[] b;
-	EXPECT_EQ(0, v == v1);
+	TDynamicVector<int> v1(10);
+	TDynamicVector<int> v2(5);
+
+	EXPECT_FALSE(v1 == v2);
 }
 
 TEST(TDynamicVector, can_add_scalar_to_vector)

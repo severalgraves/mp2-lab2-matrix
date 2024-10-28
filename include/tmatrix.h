@@ -110,10 +110,14 @@ public:
   // сравнение
   bool operator==(const TDynamicVector& v) const noexcept
   {
-      for (size_t i = 0; i < sz; i++) 
-          if (pMem[i] != v.pMem[i]) 
-              return 0;
-      return 1;
+      if (sz == v.sz)
+      {
+          for (size_t i = 0; i < sz; i++)
+              if (pMem[i] != v.pMem[i])
+                  return 0;
+          return 1;
+      }
+      else return 0;
   }
   bool operator!=(const TDynamicVector& v) const noexcept
   {
@@ -238,10 +242,14 @@ public:
   // сравнение
   bool operator==(const TDynamicMatrix& m) const noexcept
   {
-      for (size_t i = 0; i < sz; ++i)
-          if (pMem[i] != m.pMem[i])
-              return 0;
-      return 1;
+      if (sz == m.sz)
+      {
+          for (size_t i = 0; i < sz; i++)
+              if (pMem[i] != m.pMem[i])
+                  return 0;
+          return 1;
+      }
+      else return 0;
   }
 
   // матрично-скалярные операции
