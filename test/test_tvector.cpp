@@ -79,7 +79,7 @@ TEST(TDynamicVector, can_assign_vector_to_itself)
 	v1[1] = v2[1] = 1;
 	v1 = v1;
 
-	ASSERT_NO_THROW(v1 = v2);
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TDynamicVector, can_assign_vectors_of_equal_size)
